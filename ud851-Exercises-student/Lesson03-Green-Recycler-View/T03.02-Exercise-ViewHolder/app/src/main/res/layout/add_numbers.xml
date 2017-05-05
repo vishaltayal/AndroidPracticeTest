@@ -32,7 +32,7 @@
     <!-- COMPLETED (10) Set the font family to monospace -->
     <!-- COMPLETED (11) Set the text size to 42sp -->
     <TextView
-        android:id="@+id/tv_item_number"
+        android:id="@+id/txt_item_number"
         style="@style/TextAppearance.AppCompat.Title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

@@ -54,6 +54,7 @@ public class MainActivity extends AppCompatActivity {
          * staggered grids, and more! See the developer documentation for more details.
          */
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
+        layoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
         mNumbersList.setLayoutManager(layoutManager);
 
         /*
