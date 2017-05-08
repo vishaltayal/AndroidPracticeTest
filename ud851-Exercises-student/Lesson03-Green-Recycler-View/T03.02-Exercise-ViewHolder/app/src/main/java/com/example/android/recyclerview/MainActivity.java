@@ -19,8 +19,9 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.widget.Toast;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements GreenAdapter.ListItemClickListner {
 
     private static final int NUM_LIST_ITEMS = 100;
 
@@ -29,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
      * "pretty" state when the reset menu item is clicked.
      */
     private GreenAdapter mAdapter;
+    private Toast mToast;
     private RecyclerView mNumbersList;
 
     @Override
@@ -66,8 +68,29 @@ public class MainActivity extends AppCompatActivity {
         /*
          * The GreenAdapter is responsible for displaying each item in the list.
          */
-        mAdapter = new GreenAdapter(NUM_LIST_ITEMS);
+        mAdapter = new GreenAdapter(NUM_LIST_ITEMS, this);
 
         mNumbersList.setAdapter(mAdapter);
     }
+
+    @Override
+    public void onListItemClickListener(int index) {
+        if (mToast != null) {
+            mToast.cancel();
+        }
+
+        // COMPLETED (12) Show a Toast when an item is clicked, displaying that item number that was clicked
+        /*
+         * Create a Toast and store it in our Toast field.
+         * The Toast that shows up will have a message similar to the following:
+         *
+         *                     Item #42 clicked.
+         */
+        String toastMessage = "Item #" + index + " clicked.";
+        mToast = Toast.makeText(this, toastMessage, Toast.LENGTH_LONG);
+
+        mToast.show();
+    }
 }
+
+

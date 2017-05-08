@@ -8,7 +8,7 @@ import android.widget.TextView;
  * Created by MOLDEDBITS on 05-05-2017.
  */
 
-public class NumberViewHolder extends RecyclerView.ViewHolder {
+public class NumberViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
     TextView lstItemView ;
 
@@ -18,5 +18,11 @@ public class NumberViewHolder extends RecyclerView.ViewHolder {
 
     }
    public void bind (int index) {lstItemView.setText(String.valueOf(index));}
+
+    @Override
+    public void onClick(View v) {
+        int position = getAdapterPosition();
+
+    }
 }
 
